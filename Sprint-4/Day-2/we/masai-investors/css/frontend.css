@@ -1,0 +1,110 @@
+body {
+  background-color: aliceblue;
+}
+.container {
+  width: 80%;
+  margin: 5rem auto;
+}
+
+h2 {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  text-transform: capitalize;
+  margin-bottom: 2rem;
+}
+
+.root {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
+}
+
+.board-members {
+  width: 60%;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.card {
+  border-radius: 0.6rem;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  position: relative;
+}
+
+.delete {
+
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  position: absolute;
+  top: -1.25rem;
+  right: -1.25rem;
+  background-color: white;
+  cursor: pointer;
+  padding: 10px;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  border-radius: 50%;
+  z-index: 10;
+  user-select: none;
+}
+
+.card h3 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+.card p {
+  font-size: 1rem;
+  color: grey;
+  font-size: bold;
+}
+
+img {
+  width: 100%;
+  display: block;
+}
+
+.card img:first-child {
+  border-top-left-radius: 0.6rem;
+  border-top-right-radius: 0.6rem;
+}
+
+.card img:last-child {
+  width: 80%;
+  display: flex;
+}
+
+@media screen and (max-width: 1068px) {
+  .board-members {
+    width: 100%;
+  }
+  .root {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .root {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .board-members {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  .root {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}

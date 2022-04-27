@@ -1,0 +1,38 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#navbar {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(0, 114, 245, 0.692);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+input {
+  display: block;
+  padding: 10px;
+  margin-bottom: 0.5rem;
+  width: 100%;
+}
+
+form {
+  width: 80%;
+  margin: 0 auto;
+  max-width: 400px;
+}
+
+#navbar > h1 {
+  font-size: 2rem;
+}
+
+#navbar a {
+  text-decoration: none;
+  color: white;
+}
+#navbar a:hover {
+  text-decoration: underline;
+}

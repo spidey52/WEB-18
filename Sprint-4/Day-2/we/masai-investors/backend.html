@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/common.css">
+	<title>Masai Investors</title>
+</head>
+
+<body>
+
+	<div id="navbar">
+		<h1>
+			<a href="frontend.html">Frontend</a>
+		</h1>
+		<h1>
+			<a href="backend.html">Backend</a>
+		</h1>
+	</div>
+
+	<form>
+		<input type="text" placeholder="name" id="name">
+		<input type="text" placeholder="image url" id="img">
+		<input type="text" placeholder="company logo" id="logo">
+		<input type="text" placeholder="role" id="role">
+		<input type="submit" value="add investors">
+	</form>
+
+
+	<script>
+		let investors = JSON.parse(localStorage.getItem('investors')) || []
+
+		let form = document.querySelector('form')
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault()
+
+			let obj = {
+				name: form.name.value,
+				img: form.img.value,
+				logo: form.logo.value,
+				role: form.role.value,
+				id: Math.floor(Math.random() * 100000000000)
+			}
+			investors.push(obj);
+
+			localStorage.setItem('investors', JSON.stringify(investors))
+
+		})
+
+
+
+	</script>
+
+
+</body>
+
+</html>
