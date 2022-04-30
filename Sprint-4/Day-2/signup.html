@@ -5,22 +5,34 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/common.css">
 	<title>sign up</title>
 </head>
 
 <body>
 
+	<nav>
+		<div class="logo">Rebook</div>
+
+		<div class="nav-links">
+			<div class="link"> <a href="mens.html">Men</a> </div>
+			<div class="link"> <a href="womens.html">Women</a> </div>
+			<div class="link"> <a href="login.html">Login</a> </div>
+			<div class="link"> <a href="signup.html">signup</a> </div>
+		</div>
+
+	</nav>
+
 
 	<form>
 
 		<input id="email" type="email" placeholder="enter email" />
+		<input id="username" type="text" placeholder="enter username" />
 		<input id="number" type="number" placeholder="enter phone number" />
 		<input id="text" type="password" placeholder="enter password" />
 		<input type="submit" value="sign up" />
 
 	</form>
-
-	<a href="./login.html">login page</a>
 
 	<script>
 
@@ -34,6 +46,7 @@
 			e.preventDefault()
 			let userData = {
 				email: email.value,
+				username: form.username.value,
 				number: number.value,
 				password: password.value
 			}

@@ -1,0 +1,39 @@
+.container {
+  width: 98%;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.button-container > button {
+  width: 40%;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.button-container p {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.cart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header > .content {
+  display: flex;
+  justify-content: space-between;
+  margin-right: 0.5rem;
+}
+
+.cart-header > .content > div {
+  margin-right: 1rem;
+  font-size: 1.25rem;
+  font-weight: bold;
+}

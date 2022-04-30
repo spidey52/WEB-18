@@ -5,10 +5,23 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/common.css">
 	<title>log in</title>
 </head>
 
 <body>
+
+	<nav>
+		<div class="logo">Rebook</div>
+
+		<div class="nav-links">
+			<div class="link"> <a href="mens.html">Men</a> </div>
+			<div class="link"> <a href="womens.html">Women</a> </div>
+			<div class="link"> <a href="login.html">Login</a> </div>
+			<div class="link"> <a href="signup.html">signup</a> </div>
+		</div>
+
+	</nav>
 
 	<form>
 
@@ -22,20 +35,26 @@
 
 		let form = document.querySelector('form')
 		let email = document.querySelector('#email')
-		let password =  document.querySelector('#password')
-
+		let password = document.querySelector('#password')
 
 		form.addEventListener('submit', e => {
 			e.preventDefault()
 
 			let obj = JSON.parse(localStorage.getItem('user-data'))
-			if(obj.email === email.value && obj.password === password.value)
-				alert('login in succesful');
-			else 
+			if (!obj) {
+				alert('create your account firs');
+				window.location.href = 'signup.html'
+			}
+			else if (obj.email === email.value && obj.password === password.value) {
+				alert('login succesful');
+				localStorage.setItem('signin', JSON.stringify(obj))
+				window.location.href = 'mens.html'
+			}
+			else
 				alert('invalid credentials');
-
 		})
 
 	</script>
 </body>
+
 </html>

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="./css/common.css">
+	<link rel="stylesheet" href="./css/cart.css">
+	<title>Cart Page</title>
+
+</head>
+
+<body>
+
+
+	<div class="cart-header">
+
+		<h1>Cart Page</h1>
+
+		<div class="content">
+			<div id="totalItems">Total Items: 0</div>
+			<div id="totalPrice">TotalPrice: $ 0</div>
+		</div>
+
+	</div>
+
+
+	<div id="cart-container" class="container">
+
+	</div>
+
+	<script src="./js/common.js"></script>
+	<script>
+
+		function createCard(data) {
+			let card = document.createElement('div')
+			card.setAttribute('class', 'card')
+
+			let img = document.createElement('img');
+			let name = document.createElement('h4');
+			let price = document.createElement('p');
+
+			let buttonContainer = document.createElement('div');
+			buttonContainer.setAttribute('class', 'button-container');
+			let quantity = document.createElement('p')
+			let incButton = document.createElement('button');
+			let decButton = document.createElement('button');
+			incButton.innerText = '+'
+			decButton.innerText = '-'
+
+			let removeButton = document.createElement('button');
+			removeButton.innerText = 'remove'
+			buttonContainer.append(decButton, quantity, incButton);
+
+			img.src = data.image_url;
+			name.innerText = data.name
+			price.innerText = "$ " + data.price
+			quantity.innerText = data.quantity
+
+			card.append(img, name, price, buttonContainer, removeButton)
+
+
+			incButton.addEventListener('click', (e) => {
+				data.quantity++;
+				updateCart(cartArr);
+				updateUi(cartArr);
+			})
+			decButton.addEventListener('click', (e) => {
+				if (--data.quantity <= 0) {
+					let index = cartArr.findIndex(elem => elem.id === data.id)
+					cartArr.splice(index, 1)
+
+				}
+				updateCart(cartArr);
+				updateUi(cartArr);
+			})
+
+			removeButton.addEventListener('click', (e) => {
+				let index = cartArr.findIndex(elem => elem.id === data.id)
+				cartArr.splice(index, 1)
+				updateCart(cartArr);
+				updateUi(cartArr);
+			})
+
+			return card
+		}
+
+		function updateUi(cartArr) {
+			let cartContainer = document.querySelector('#cart-container')
+			const totalItems = document.querySelector("#totalItems")
+			const totalPrice = document.querySelector("#totalPrice")
+
+			cartContainer.innerText = null;
+			totalItems.innerText = `Total Items: ${getTotalItems()}`
+			totalPrice.innerText = `Total Price: $ ${getTotalPrice()}`
+
+			cartArr.forEach(elem => cartContainer.append(createCard(elem)))
+		}
+
+		updateUi(cartArr);
+
+	</script>
+
+</body>
+
+</html>
